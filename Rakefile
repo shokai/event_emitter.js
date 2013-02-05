@@ -1,6 +1,6 @@
 task :build do
   src = File.expand_path 'src/event_emitter.js', File.dirname(__FILE__)
-  dest = File.expand_path 'event_emitter.js', File.dirname(__FILE__)
+  dest = File.expand_path 'event_emitter.min.js', File.dirname(__FILE__)
   header = File.expand_path 'HEADER.txt', File.dirname(__FILE__)
   js = `uglifyjs #{src}`
   open(dest, 'w+') do |out|

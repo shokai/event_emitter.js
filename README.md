@@ -2,9 +2,13 @@ EventEmitter.js
 ===============
 EventEmitter for WebBrowser
 
+Download
+--------
+<a href="https://raw.github.com/shokai/EventEmitter.js/master/event_emitter.min.js">event_emitter.min.js</a>
+
+
 Synopsis
 --------
-
 load
 ```html
 <script src="event_emitter.js"></script>
@@ -61,4 +65,4 @@ edit "HEADER.txt"
     % npm install -g uglify-js
     % rake build
 
-=> event_emitter.js
+=> event_emitter.min.js
