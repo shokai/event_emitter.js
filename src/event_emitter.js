@@ -25,14 +25,14 @@ var EventEmitter = function(){
   };
 
   this.once = function(type, listener){
-    this.on(type, listener, {once: true});
+    self.on(type, listener, {once: true});
   };
 
   this.emit = function(type, data){
     for(var i = 0; i < self.__events.length; i++){
       var e = self.__events[i];
       if(e.type == type) e.listener(data);
-      if(e.once) this.removeListener(e.id);
+      if(e.once) self.removeListener(e.id);
     }
   };
 
