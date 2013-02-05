@@ -1,9 +1,11 @@
 EventEmitter.js
 ===============
+EventEmitter for WebBrowser
 
 Synopsis
 --------
 
+load
 ```html
 <script src="event_emitter.js"></script>
 ```
@@ -19,9 +21,9 @@ var User = function(){
 regist event listener
 ```javascript
 var user = new User();
-user.name = "shokai";
-user.on('go', function(data){
-  alert(user.name+" -> "+data.place);
+user.name = 'shokai';
+user.on('go', function(data.place){
+  alert(user.name+' -> '+data.place);
 });
 ```
 
@@ -33,14 +35,14 @@ user.emit('go', {place: 'mountain'}); // "shokai -> mountain"
 regist event using "once"
 ```ruby
 user.once('eat', function(data){
-  alert(user.name + " -> eat " + data.what + " at " + data.where);
+  alert(user.name+' -> eat '+data.what+' at '+data.where);
 });
 ```
 
 call
 ```javascript
-user.emit('eat', 'BEEF', 'zanmai'); // "shokai -> eat BEEF at zanmai"
-user.emit('eat', 'Ramen', 'marutomo'); // do not call. call only first time.
+user.emit('eat', {what: 'BEEF', where: 'zanmai'}); // "shokai -> eat BEEF at zanmai"
+user.emit('eat', {what: 'Ramen', where: 'marutomo'}); // do not call. call only first time.
 ```
 
 
