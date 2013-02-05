@@ -1,6 +1,12 @@
 EventEmitter.js
 ===============
 
+Test
+----
+
+    % npm install -g nodeunit
+    % rake test
+
 
 Build
 -----

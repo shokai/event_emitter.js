@@ -51,3 +51,5 @@ var EventEmitter = function(){
   };
 
 };
+
+if(exports) exports.EventEmitter = EventEmitter;

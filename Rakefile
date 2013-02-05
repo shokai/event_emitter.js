@@ -12,4 +12,8 @@ task :build do
   puts " => #{dest}"
 end
 
-task :default => :build
+task :test do
+  system "nodeunit test"
+end
+
+task :default => :test

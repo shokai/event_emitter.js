@@ -1,0 +1,19 @@
+{
+  "name": "EventEmitter",
+  "version": "0.0.1",
+  "description": "EventEmitter for WebBrowser",
+  "main": "event_emitter.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shokai/EventEmitter.js.git"
+  },
+  "author": "Sho Hashimoto",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
