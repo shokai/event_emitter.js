@@ -52,11 +52,11 @@ exports['removeListener'] = function(test){
     console.log(data);
   });
 
-  test.equal(foo.events.length, 3, 'check registerd listeners count');
+  test.equal(foo.__events.length, 3, 'check registerd listeners count');
   foo.removeListener(id);
-  test.equal(foo.events.length, 2, 'remove listener by id');
+  test.equal(foo.__events.length, 2, 'remove listener by id');
   foo.removeListener('bar');
-  test.equal(foo.events.length, 0, 'remove all "bar" listener');
+  test.equal(foo.__events.length, 0, 'remove all "bar" listener');
 
   test.done();
 };
