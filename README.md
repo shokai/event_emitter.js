@@ -49,6 +49,11 @@ user.emit('eat', {what: 'BEEF', where: 'zanmai'}); // "shokai -> eat BEEF at zan
 user.emit('eat', {what: 'Ramen', where: 'marutomo'}); // do not call. call only first time.
 ```
 
+remove listener
+```javascript
+user.removeListener('eat');
+user.removeListener(id);
+```
 
 Test
 ----
