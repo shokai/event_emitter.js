@@ -18,6 +18,7 @@ exports['simple'] = function(test){
     created_at = foo.created_at;
   });
   foo.emit('bar');
+
   test.equal(created_at, now);
   test.done();
 };
@@ -32,6 +33,7 @@ exports['on emit'] = function(test){
     user: 'shokai',
     message: 'hello world'
   });
+
   test.equal(result.user, 'shokai');
   test.equal(result.message, 'hello world');
   test.done();
@@ -65,9 +67,11 @@ exports['once'] = function(test){
   foo.once('add', function(data){
     total += data;
   });
+
   foo.emit('add', 10);
   test.equal(total, 10, 'first call');
   foo.emit('add', 20);
   test.equal(total, 10, 'call listener only first time');
+
   test.done();
 };
