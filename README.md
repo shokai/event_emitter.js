@@ -14,7 +14,7 @@ apply
 ```javascript
 var User = function(){
   new EventEmitter().apply(this);
-  this.name = "";
+  this.name = '';
 };
 ```
 
