@@ -59,7 +59,7 @@ Test
 ----
 
     % npm install -g nodeunit
-    % rake test
+    % make
 
 
 Build
@@ -68,6 +68,6 @@ Build
 edit "HEADER.txt"
 
     % npm install -g uglify-js
-    % rake build
+    % make build
 
-=> event_emitter.min.js
+=> event_emitter.js and event_emitter.min.js
