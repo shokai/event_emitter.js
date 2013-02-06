@@ -1,7 +1,11 @@
-=== v0.0.2 2013-2-6
+=== 0.0.3 2013-2-6
+
+* method name prefix
+
+=== 0.0.2 2013-2-6
 
 * add test with nodeunit
 
-=== v0.0.1 2013-2-5
+=== 0.0.1 2013-2-5
 
 * first release

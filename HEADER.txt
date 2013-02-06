@@ -1,4 +1,4 @@
-// event_emitter.js v0.0.2
+// event_emitter.js v0.0.3
 // https://github.com/shokai/EventEmitter.js
 // (c) 2013 Sho Hashimoto <hashimoto@shokai.org>
 // The MIT License
