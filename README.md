@@ -4,7 +4,8 @@ EventEmitter for WebBrowser
 
 Download
 --------
-<a href="https://raw.github.com/shokai/EventEmitter.js/master/event_emitter.min.js">event_emitter.min.js</a>
+- <a href="https://raw.github.com/shokai/EventEmitter.js/master/event_emitter.js">event_emitter.js</a>
+- <a href="https://raw.github.com/shokai/EventEmitter.js/master/event_emitter.min.js">event_emitter.min.js</a> (compressed)
 
 
 Synopsis
