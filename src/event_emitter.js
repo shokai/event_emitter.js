@@ -52,6 +52,6 @@ var EventEmitter = function(){
 
 };
 
-if(typeof exports !== 'undefined'){
-  exports.EventEmitter = EventEmitter;
+if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+  module.exports = EventEmitter;
 }

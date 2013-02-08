@@ -1,1 +1,1 @@
-EventEmitter = require(__dirname+'/../src/event_emitter.js').EventEmitter;
+EventEmitter = require(__dirname+'/../src/event_emitter.js');
