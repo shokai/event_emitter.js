@@ -9,19 +9,20 @@ var Timer = function(){
   };
 };
 
-var log = function(str){
-  console.log(str);
-  $("#log").append(
-    $("<li>").text(str)
-  );
-};
-
 $(function(){
   $("#btn_start").click(function(){
     var timer = new Timer();
-    timer.on('tick', function(data){
-      log(data);
+
+    timer.on('tick', function(count){
+      $("#log").append(
+        $("<li>").text(count)
+      );
     });
+
+    timer.on('*', function(event, data){
+      console.log(event+" - "+data);
+    });
+
     timer.start(1000);
   });
 });
