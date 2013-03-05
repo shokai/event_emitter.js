@@ -31,7 +31,14 @@ var EventEmitter = function(){
   this.emit = function(type, data){
     for(var i = 0; i < self.__events.length; i++){
       var e = self.__events[i];
-      if(e.type == type) e.listener(data);
+      switch(e.type){
+      case type:
+        e.listener(data);
+        break
+      case '*':
+        e.listener(type, data);
+        break
+      }
       if(e.once) self.removeListener(e.id);
     }
   };
