@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Eventemitter.js : EventEmitter for WebBrowser" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Eventemitter.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/shokai/EventEmitter.js">View on GitHub</a>
+
+          <h1 id="project_title">Eventemitter.js</h1>
+          <h2 id="project_tagline">EventEmitter for WebBrowser</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/shokai/EventEmitter.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/shokai/EventEmitter.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>EventEmitter.js</h1>
+
+<p>EventEmitter for WebBrowser</p>
+
+<h2>Download</h2>
+
+<ul>
+<li><a href="https://raw.github.com/shokai/EventEmitter.js/master/event_emitter.js">event_emitter.js</a></li>
+<li>
+<a href="https://raw.github.com/shokai/EventEmitter.js/master/event_emitter.min.js">event_emitter.min.js</a> (compressed)</li>
+</ul><h2>Synopsis</h2>
+
+<p>load</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"event_emitter.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>apply</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">new</span> <span class="nx">EventEmitter</span><span class="p">().</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>regist event listener</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s1">'shokai'</span><span class="p">;</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'go'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">place</span><span class="p">){</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="s1">' -&gt; '</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">place</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>call event</p>
+
+<div class="highlight"><pre><span class="nx">user</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'go'</span><span class="p">,</span> <span class="p">{</span><span class="nx">place</span><span class="o">:</span> <span class="s1">'mountain'</span><span class="p">});</span> <span class="c1">// "shokai -&gt; mountain"</span>
+</pre></div>
+
+<p>regist event using "once"</p>
+
+<div class="highlight"><pre><span class="n">user</span><span class="o">.</span><span class="n">once</span><span class="p">(</span><span class="s1">'eat'</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">data</span><span class="p">){</span>
+  <span class="n">alert</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s1">' -&gt; eat '</span><span class="o">+</span><span class="n">data</span><span class="o">.</span><span class="n">what</span><span class="o">+</span><span class="s1">' at '</span><span class="o">+</span><span class="n">data</span><span class="o">.</span><span class="n">where</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>call</p>
+
+<div class="highlight"><pre><span class="nx">user</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'eat'</span><span class="p">,</span> <span class="p">{</span><span class="nx">what</span><span class="o">:</span> <span class="s1">'BEEF'</span><span class="p">,</span> <span class="nx">where</span><span class="o">:</span> <span class="s1">'zanmai'</span><span class="p">});</span> <span class="c1">// "shokai -&gt; eat BEEF at zanmai"</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'eat'</span><span class="p">,</span> <span class="p">{</span><span class="nx">what</span><span class="o">:</span> <span class="s1">'Ramen'</span><span class="p">,</span> <span class="nx">where</span><span class="o">:</span> <span class="s1">'marutomo'</span><span class="p">});</span> <span class="c1">// do not call. call only first time.</span>
+</pre></div>
+
+<p>remove listener</p>
+
+<div class="highlight"><pre><span class="nx">user</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="s1">'eat'</span><span class="p">);</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</pre></div>
+
+<p>catch all events</p>
+
+<div class="highlight"><pre><span class="nx">user</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'*'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event_name</span><span class="p">,</span> <span class="nx">data</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event_name</span> <span class="o">+</span> <span class="s1">' was called'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Eventemitter.js maintained by <a href="https://github.com/shokai">shokai</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
