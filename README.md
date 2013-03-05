@@ -56,6 +56,14 @@ user.removeListener('eat');
 user.removeListener(id);
 ```
 
+catch all events
+```javascript
+user.on('*', function(event_name, data){
+  console.log(event_name + ' was called');
+  console.log(data);
+});
+```
+
 Test
 ----
 
