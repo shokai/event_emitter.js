@@ -6,6 +6,17 @@ var Foo = function(){
   now = this.created_at = new Date();
 };
 
+exports['check applied properties'] = function(test){
+  var foo = new Foo();
+  var props = ["__event___events", "__event_on", "__event_once", "__event_emit", "__event_removeListener"];
+  for(var i = 0; i < props.length; i++){
+    var prop = props[i];
+    test.equal(foo.hasOwnProperty(prop), true, 'property "'+prop+'" should copy');
+  }
+  test.equal(foo.hasOwnProperty("__event_apply"), false, 'property "__event_apply" shoud not copy');
+  test.done();
+};
+
 exports['simple'] = function(test){
   var created_at = null;
   var foo = new Foo();
