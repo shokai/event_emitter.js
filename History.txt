@@ -1,3 +1,7 @@
+=== 0.0.7 2013-3-18
+
+* not copy "apply" function
+
 === 0.0.6 2013-3-13
 
 * rename project EventEmitter.js -> event_emitter.js
