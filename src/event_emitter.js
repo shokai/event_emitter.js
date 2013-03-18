@@ -3,7 +3,7 @@ var EventEmitter = function(){
   this.apply = function(target, prefix){
     if(!prefix) prefix = "";
     for(var func in self){
-      if(self.hasOwnProperty(func)){
+      if(self.hasOwnProperty(func) && func !== "apply"){
         target[prefix+func] = this[func];
       }
     }

@@ -11,6 +11,17 @@ exports['load event emitter'] = function(test){
   test.done();
 };
 
+exports['check applied properties'] = function(test){
+  var foo = new Foo();
+  var props = ["__events", "on", "once", "emit", "removeListener"];
+  for(var i = 0; i < props.length; i++){
+    var prop = props[i];
+    test.equal(foo.hasOwnProperty(prop), true, 'property "'+prop+'" should copy');
+  }
+  test.equal(foo.hasOwnProperty("apply"), false, 'property "apply" shoud not copy');
+  test.done();
+};
+
 exports['simple'] = function(test){
   var created_at = null;
   var foo = new Foo();
