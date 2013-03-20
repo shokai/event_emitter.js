@@ -86,3 +86,25 @@ exports['once'] = function(test){
 
   test.done();
 };
+
+exports['multiple once'] = function(test){
+  var total = 0;
+  var foo = new Foo();
+
+  for(var i = 0; i < 4; i++){
+    foo.once('add', function(num){
+      total += num;
+    });
+  }
+
+  foo.on('add', function(num){
+    total += num;
+  });
+
+  foo.emit('add', 1);
+  test.equal(total, 5, 'first call');
+  foo.emit('add', 1);
+  test.equal(total, 6, 'call listener only first time');
+
+  test.done();
+};
