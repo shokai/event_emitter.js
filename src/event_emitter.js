@@ -34,12 +34,13 @@ var EventEmitter = function(){
       switch(e.type){
       case type:
         e.listener(data);
+        if(e.once) self.removeListener(e.id);
         break
       case '*':
         e.listener(type, data);
+        if(e.once) self.removeListener(e.id);
         break
       }
-      if(e.once) self.removeListener(e.id);
     }
   };
 
