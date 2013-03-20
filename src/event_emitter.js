@@ -34,14 +34,15 @@ var EventEmitter = function(){
       switch(e.type){
       case type:
         e.listener(data);
-        if(e.once) self.removeListener(e.id);
+        if(e.once) e.type = null;
         break
-      case '*':
+      case "*":
         e.listener(type, data);
-        if(e.once) self.removeListener(e.id);
+        if(e.once) e.type = null;
         break
       }
     }
+    self.removeListener();
   };
 
   this.removeListener = function(id_or_type){
@@ -49,10 +50,11 @@ var EventEmitter = function(){
       var e = self.__events[i];
       switch(typeof id_or_type){
       case "number":
-        if(e.id == id_or_type) self.__events.splice(i,1);
+        if(e.id === id_or_type) self.__events.splice(i,1);
         break
       case "string":
-        if(e.type == id_or_type) self.__events.splice(i,1);
+      case "object":
+        if(e.type === id_or_type) self.__events.splice(i,1);
         break
       }
     }
@@ -60,6 +62,6 @@ var EventEmitter = function(){
 
 };
 
-if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+if(typeof module !== "undefined" && typeof module.exports !== "undefined"){
   module.exports = EventEmitter;
 }
