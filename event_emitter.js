@@ -1,4 +1,4 @@
-// event_emitter.js v0.0.8
+// event_emitter.js v0.0.9
 // https://github.com/shokai/event_emitter.js
 // (c) 2013 Sho Hashimoto <hashimoto@shokai.org>
 // The MIT License
@@ -68,4 +68,7 @@ var EventEmitter = function(){
 
 if(typeof module !== "undefined" && typeof module.exports !== "undefined"){
   module.exports = EventEmitter;
-}
+
+} else if (typeof define === "function" && define.amd) {
+  define([], function () { return EventEmitter; });
+};
