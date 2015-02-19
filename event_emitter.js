@@ -46,7 +46,6 @@ var EventEmitter = function(){
         break
       }
     }
-    self.removeListener();
   };
 
   this.removeListener = function(id_or_type){
